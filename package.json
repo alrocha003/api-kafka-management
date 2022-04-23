@@ -1,0 +1,21 @@
+{
+  "name": "api-kafka-management",
+  "version": "1.0.0",
+  "description": "Rest api in typescript to management Kafka service",
+  "main": "dist/src/api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/src/api.js",
+    "build": "tsc -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alrocha003/api-kafka-management.git"
+  },
+  "author": "Alex Rocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alrocha003/api-kafka-management/issues"
+  },
+  "homepage": "https://github.com/alrocha003/api-kafka-management#readme"
+}
