@@ -1,6 +1,6 @@
 # api-kafka-management
 
-![Kafka logo] https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_kafka_logo_icon_167866.png
+![Kafka logo](https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_kafka_logo_icon_167866.png "Apache Kafka Logo")
 
 Rest api in typescript to management Kafka service
 
