@@ -2,12 +2,15 @@
 
 import http from 'http';
 import * as dotenv from 'dotenv';
+import { getJSDocReadonlyTag } from 'typescript';
 
 const HOST: string = 'https://localhost';
 const POST: string = 'POST';
 const GET: string = 'GET';
+const PUT: string = 'PUT';
 
 dotenv.config();
+
 
 const server = http.createServer((request, response) => {
     
@@ -17,6 +20,11 @@ const server = http.createServer((request, response) => {
         response.end();
     }
     else if (request.method == GET) {
+        response.writeHead(httpStatusCode.Ok.valueOf())
+        response.write(JSON.stringify({ 'message': process.env.MESSAGE_CONFIG }));
+        response.end();
+    }
+    else if (request.method == PUT) {
         response.writeHead(httpStatusCode.Ok.valueOf())
         response.write(JSON.stringify({ 'message': process.env.MESSAGE_CONFIG }));
         response.end();
@@ -31,5 +39,3 @@ const server = http.createServer((request, response) => {
 server.listen(process.env.PORT, () => {
     console.info(`Server on ${HOST}:${process.env.PORT}`);
 })
-
-
