@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/alrocha003/api-kafka-management#readme",
   "dependencies": {
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "kafkajs": "^2.0.2"
   }
 }

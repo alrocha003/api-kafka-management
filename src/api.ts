@@ -2,7 +2,7 @@
 
 import http from 'http';
 import * as dotenv from 'dotenv';
-import { getJSDocReadonlyTag } from 'typescript';
+import KafkaService from './services/kafkaService';
 
 const HOST: string = 'https://localhost';
 const POST: string = 'POST';
@@ -13,7 +13,10 @@ dotenv.config();
 
 
 const server = http.createServer((request, response) => {
-    
+
+    let service: KafkaService = new KafkaService(process.env.KAFKA_URI ?? '',
+        process.env.KAFKA_TOPIC ?? '');
+
     if (request.method == POST) {
         response.writeHead(httpStatusCode.Created.valueOf());
         response.write(JSON.stringify({ 'message': 'Method POST' }));
@@ -21,7 +24,7 @@ const server = http.createServer((request, response) => {
     }
     else if (request.method == GET) {
         response.writeHead(httpStatusCode.Ok.valueOf())
-        response.write(JSON.stringify({ 'message': process.env.MESSAGE_CONFIG }));
+        response.write(JSON.stringify({ 'message': service.Subscribe() }));
         response.end();
     }
     else if (request.method == PUT) {
